@@ -1,0 +1,27 @@
+[
+	{
+		"file": "C:\\\\Workset\\\\Repo\\\\UE4 Projects\\\\01_WAR\\\\BattleTank\\\\Source\\\\BattleTank\\\\BattleTank.Build.cs",
+		"command": "cl.exe @\"C:\\Workset\\Repo\\UE4 Projects\\01_WAR\\BattleTank\\.vscode\\compileCommands_Default\\BattleTank.190.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Workset\\\\Repo\\\\UE4 Projects\\\\01_WAR\\\\BattleTank\\\\Source\\\\BattleTank\\\\BattleTank.cpp",
+		"command": "cl.exe @\"C:\\Workset\\Repo\\UE4 Projects\\01_WAR\\BattleTank\\.vscode\\compileCommands_Default\\BattleTank.190.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Workset\\\\Repo\\\\UE4 Projects\\\\01_WAR\\\\BattleTank\\\\Source\\\\BattleTank\\\\BattleTank.h",
+		"command": "cl.exe @\"C:\\Workset\\Repo\\UE4 Projects\\01_WAR\\BattleTank\\.vscode\\compileCommands_Default\\BattleTank.190.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Workset\\\\Repo\\\\UE4 Projects\\\\01_WAR\\\\BattleTank\\\\Source\\\\BattleTank\\\\BattleTankGameModeBase.cpp",
+		"command": "cl.exe @\"C:\\Workset\\Repo\\UE4 Projects\\01_WAR\\BattleTank\\.vscode\\compileCommands_Default\\BattleTank.190.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	},
+	{
+		"file": "C:\\\\Workset\\\\Repo\\\\UE4 Projects\\\\01_WAR\\\\BattleTank\\\\Source\\\\BattleTank\\\\BattleTankGameModeBase.h",
+		"command": "cl.exe @\"C:\\Workset\\Repo\\UE4 Projects\\01_WAR\\BattleTank\\.vscode\\compileCommands_Default\\BattleTank.190.rsp\"",
+		"directory": "C:\\Program Files\\Epic Games\\UE_4.26\\Engine\\Source"
+	}
+]
