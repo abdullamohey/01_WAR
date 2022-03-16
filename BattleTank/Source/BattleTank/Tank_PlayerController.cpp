@@ -45,7 +45,12 @@ void ATank_PlayerController::AimTowardsCrosshair()
 
 bool ATank_PlayerController::GetSightRayHitLocation(FVector &OutHitLocation) const
 {
-    OutHitLocation = FVector(1.0);
+    //Finding Crosshair position in pixel coordinates
+    int32 ViewportSizeX , ViewportSizeY;
+    GetViewportSize(ViewportSizeX,ViewportSizeY);
+    auto ScreenLocation = FVector2D(ViewportSizeX*CrossHairXLocation , ViewportSizeY*CrossHairYLocation);
+
+
     return true;
 }
 

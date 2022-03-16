@@ -22,9 +22,16 @@ class BATTLETANK_API ATank_PlayerController : public APlayerController
 
 		virtual void Tick(float Deltatime) override;
 
+		UPROPERTY(EditAnywhere)
+		float CrossHairXLocation = 0.5;
+
+		UPROPERTY(EditAnywhere)
+		float CrossHairYLocation = 0.3333;
+
 	private:
 		void AimTowardsCrosshair();
 
 		bool GetSightRayHitLocation(FVector &OutHitLocation) const;
+
 	
 };
