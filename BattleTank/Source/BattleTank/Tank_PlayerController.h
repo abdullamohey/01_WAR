@@ -24,5 +24,7 @@ class BATTLETANK_API ATank_PlayerController : public APlayerController
 
 	private:
 		void AimTowardsCrosshair();
+
+		bool GetSightRayHitLocation(FVector &OutHitLocation) const;
 	
 };
