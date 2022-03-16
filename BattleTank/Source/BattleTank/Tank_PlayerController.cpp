@@ -21,6 +21,20 @@ void ATank_PlayerController::BeginPlay()
 
 }
 
+void ATank_PlayerController::Tick(float Deltatime)
+{
+    Super::Tick(Deltatime);
+    AimTowardsCrosshair();
+}
+
+void ATank_PlayerController::AimTowardsCrosshair()
+{
+    if(!ControlledTank)
+    {
+        return;
+    }
+    
+}
 
 ATank* ATank_PlayerController::GetControlledTank() const
 {
