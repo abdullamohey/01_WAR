@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "TankAIController.h"
 
 
@@ -16,6 +15,15 @@ void ATankAIController::BeginPlay()
     else
     {
         UE_LOG(LogTemp, Warning, TEXT("Player Tank is %s"),*(PlayerTank->GetName()));
+    }
+}
+
+void ATankAIController::Tick(float Delta)
+{
+    Super::Tick(Delta);
+    if(GetPlayerTank())
+    {
+        GetAIControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
     }
 }
 
