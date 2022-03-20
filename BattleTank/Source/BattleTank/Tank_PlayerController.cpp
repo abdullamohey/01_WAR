@@ -38,7 +38,7 @@ void ATank_PlayerController::AimTowardsCrosshair()
     
     if(GetSightRayHitLocation(OutHitLocation))
     {
-        //UE_LOG(LogTemp, Warning, TEXT("Hit Location : %s"), *OutHitLocation.ToString()) ;
+        UE_LOG(LogTemp, Warning, TEXT("Hit Location : %s"), *OutHitLocation.ToString()) ;
     }
 
 }
@@ -47,15 +47,19 @@ bool ATank_PlayerController::GetSightRayHitLocation(FVector &OutHitLocation) con
 {
     //Finding Crosshair position in pixel coordinates
     int32 ViewportSizeX , ViewportSizeY;
+
     GetViewportSize(ViewportSizeX,ViewportSizeY);
     auto ScreenLocation = FVector2D(ViewportSizeX*CrossHairXLocation , ViewportSizeY*CrossHairYLocation);
 
     //Deproject screen position of the crosshair to a world direction
     FVector WorldDirection;
-
+    
     if(GetLookDirection(ScreenLocation,WorldDirection))
     {
-        UE_LOG(LogTemp, Warning, TEXT("World Direction is : %s"), *WorldDirection.ToString()) ;
+        //UE_LOG(LogTemp, Warning, TEXT("World Direction is : %s"), *WorldDirection.ToString()) ;
+
+        // Line-trace along that LookDirection, and see what we hit (up to max range)
+        GetLookVectorHitLocation(WorldDirection ,OutHitLocation);
     }
 
 
@@ -65,9 +69,23 @@ bool ATank_PlayerController::GetSightRayHitLocation(FVector &OutHitLocation) con
 bool ATank_PlayerController::GetLookDirection(FVector2D ScreenLocation , FVector& LookDirection) const
 {
     FVector CameraLocation;
-
     return DeprojectScreenPositionToWorld(ScreenLocation.X , ScreenLocation.Y , CameraLocation , LookDirection );
-    
+}
+
+bool ATank_PlayerController::GetLookVectorHitLocation(FVector LookDirection , FVector& HitLocation) const
+{
+    FHitResult HitResult ;
+    auto StartLocation = PlayerCameraManager->GetCameraLocation();
+    auto EndLocation = StartLocation + (LookDirection*LineTraceRange); 
+
+    if(GetWorld()->LineTraceSingleByChannel(HitResult ,StartLocation, EndLocation, ECollisionChannel::ECC_Visibility))
+    {
+        HitLocation = HitResult.Location;
+        return true;
+    }
+
+    HitLocation=FVector(0);
+    return false;
 }
 
 ATank* ATank_PlayerController::GetControlledTank() const
